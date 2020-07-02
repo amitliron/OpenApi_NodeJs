@@ -1,0 +1,8 @@
+get:
+  tags:
+    - feature_famalies
+  summary: View all feature famalies
+  description: Returns a list of feature famalies      
+  responses:
+    '200':
+      description: Successfully returned a list of feature famalies

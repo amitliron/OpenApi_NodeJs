@@ -1,0 +1,9 @@
+#/project: 
+#    $ref: './project.yaml' 
+#/filter: 
+#    $ref: './filter.yaml'
+/feature_famaliy: 
+    get:
+        tags:
+            - feature_famalies
+    #$ref: ./features_famalies.yaml

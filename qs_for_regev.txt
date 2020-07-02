@@ -3,10 +3,3 @@
 
 
 
------------------------
-1. parameters:
-Project:
-      type: object
-
-
-      other types ? (other than object)

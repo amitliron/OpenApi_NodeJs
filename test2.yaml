@@ -1,0 +1,10 @@
+get:      
+      tags:
+        - test
+      summary: test1
+      description: test  1           
+      responses:
+        '200':
+          description: test
+
+        

@@ -119,8 +119,32 @@ components:
       properties:
           name:
             type: string
+            enum: ["geo", "freq"]
           value:
             type: string
+    
+      
+      
+
+    #
+    # TODO:
+    #  can we use  Geo_filter and Freq_Filter as ENUMs ?
+    #
+    Geo_filter:
+      type: object
+      properties:
+        g_type:
+          type: string
+        value:
+          type: string
+
+    Freq_Filter:
+      type: object
+      properties:
+        min:
+          type: integer
+        max:
+          type: integer
 
         
         

@@ -1,0 +1,9 @@
+    get:
+      tags:
+        - test
+      summary: View all test
+      description: Returns a list of test      
+      responses:
+        '200':
+          description: Successfully returned a list of test
+      

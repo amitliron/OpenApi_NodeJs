@@ -1,0 +1,35 @@
+ get:
+      tags:
+        - projects
+      summary: View all projects
+      description: Returns a list of projects       
+      #parameters:
+      #  - $ref: '#/components/parameters/project_id'        
+      responses:
+        '200':
+          description: Successfully returned a list of projects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+        '400':
+          $ref: '#/components/responses/400Error'
+
+    post:
+      summary: Add new projects
+      tags:
+        - projects
+      description: Lets a user post a new Project
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+      responses:
+        '200':
+          description: Successfully created a new Project
+        '400':
+          $ref: '#/components/responses/400Error'
