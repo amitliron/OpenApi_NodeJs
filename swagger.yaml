@@ -1,0 +1,148 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: The big project
+  description: A simple API to illustrate OpenAPI concepts
+
+#servers:
+#  - url: 127.0.0.1
+
+security:
+  - BasicAuth: []
+
+paths:
+  /project:
+    get:
+      tags:
+        - projects
+      summary: View all projects
+      description: Returns a list of projects       
+      #parameters:
+      #  - $ref: '#/components/parameters/project_id'        
+      responses:
+        '200':
+          description: Successfully returned a list of projects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+        '400':
+          $ref: '#/components/responses/400Error'
+
+    post:
+      summary: Add new projects
+      tags:
+        - projects
+      description: Lets a user post a new Project
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+      responses:
+        '200':
+          description: Successfully created a new Project
+        '400':
+          $ref: '#/components/responses/400Error'
+
+  /filter: 
+    get:
+      tags:
+        - filters
+      summary: View all filters
+      description: Returns a list of filters      
+      responses:
+        '200':
+          description: Successfully returned a list of filters
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Filter'
+        '400':
+          $ref: '#/components/responses/400Error'
+
+    post:
+      summary: Add new filter
+      tags:
+        - filters
+      description: Lets a user post a new filter
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Filter'
+      responses:
+        '200':
+          description: Successfully created a new Filter
+        '400':
+          $ref: '#/components/responses/400Error'
+
+#------------------------------------------------------------------------------
+#
+#           components
+#
+#------------------------------------------------------------------------------
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+
+  schemas:
+    Project:
+      type: object
+      properties:        
+        name:
+            type: string
+        user_id:
+            type: string
+        description:
+            type: string
+        startTime:
+          type: string
+        windows:
+            type: string
+        geo_filter_id:
+            type: integer
+        freq_filter_id:
+            type: integer
+
+
+    Filter:
+      type: object
+      properties:
+          name:
+            type: string
+          value:
+            type: string
+
+        
+        
+
+  parameters:
+    project_id:
+      name: id
+      in: query
+      description: project id
+      schema:
+        type: integer
+      
+   
+
+  responses:
+    400Error:
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            type: object 
+            properties:
+              message:
+                type: string
+  

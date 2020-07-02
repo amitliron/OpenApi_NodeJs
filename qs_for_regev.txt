@@ -1,0 +1,12 @@
+1. project/window - array
+2. post parameters ?
+
+
+
+-----------------------
+1. parameters:
+Project:
+      type: object
+
+
+      other types ? (other than object)
